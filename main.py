@@ -7,19 +7,17 @@ import speech_recognition as sr
 import pyttsx3
 import google.generativeai as genai
 
-# Configure Gemini
 genai.configure(api_key="AIzaSyDH1v_lyCHglAQ3hvDAkuvTOZgcFzhoYUA")
 model = genai.GenerativeModel('gemini-2.0-flash')
 
-# Initialize TTS
 engine = pyttsx3.init()
 
 def speak(text):
-    print("🤖 Gemini:", text)
+    print("Gemini:", text)
     engine.say(text)
     engine.runAndWait()
 
-def listen(prompt="🎤 Listening...") -> str:
+def listen(prompt="Listening...") -> str:
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
         print(prompt)
